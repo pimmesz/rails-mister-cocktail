@@ -1,14 +1,31 @@
-<h3><%= @cocktail.name %></h3>
+<div class="flexbox">
+  <div class="flex-item">
+    <% @ingredientName = [] %>
+    <h3><%= @cocktail.name %></h3>
+    <%= image_tag "https://source.unsplash.com/200x200/?cocktail", alt: "Le Wagon", width: 200 %>
+    <% @cocktail.doses.each do |dose| %>
+    <% @ingredientName << dose.ingredient.name %>
+    <ul>
+      <li><strong>Ingredient:</strong> <%= dose.ingredient.name %></li>
+      <li><strong>Description:</strong><%= dose.description %></li>
+      <%= link_to "Delete", dose_path(dose),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </ul>
+    <% end %>
+    <% @ingredients.each do |ingredient| %>
+    <% if @ingredientName.exclude?(ingredient.name) %>
+    <ul>
+      <li>Available - <%= ingredient.name %></li>
+    </ul>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% @cocktail.doses.each do |dose| %>
-<ul>
-  <li><strong>Ingredient:</strong> <%= dose.ingredient.name %></li>
-  <li><strong>Description:</strong><%= dose.description %></li>
-  <%= link_to "Delete", dose_path(dose),
-  method: :delete,
-  data: { confirm: "Are you sure?" } %>
-</ul>
-<% end %>
-
-<%= link_to "Add dose", new_cocktail_dose_path(@cocktail)%>
-<%= link_to "Home", cocktails_path %>
+<div class="flexbox">
+  <%= link_to "Add dose", new_cocktail_dose_path(@cocktail)%>
+</div>
+<div class="flexbox">
+  <%= link_to "Home", cocktails_path %>
+</div>

@@ -1,16 +1,26 @@
 <div class="flexbox">
   <% @cocktails.each do |cocktail| %>
-  <div>
+  <div class="flex-item">
+    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    <%= link_to cocktail_path(cocktail) do %>
+    <%= image_tag "https://source.unsplash.com/200x200/?cocktail", alt: "Le Wagon", width: 200 %>
+    <% end %>
     <% cocktail.doses.each do |dose| %>
-    <div>
-    <%= link_to cocktail.name, cocktail_path(cocktail)%>
     <ul>
       <li><strong>Ingredient: </strong><%= dose.ingredient.name %> - <%= dose.description %></li>
     </ul>
-  </div>
-    <% end %>
-    <% end %>
 
-    <%= link_to "New cocktail", new_cocktail_path %>
-    <div>
-    </div>
+    <% end %>
+    <%= link_to "Delete", cocktail_path(cocktail),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+  </div>
+  <% end %>
+
+</div>
+<div class="flexbox">
+  <%= link_to "New cocktail", new_cocktail_path %>
+</div>
+</div>
+
+
