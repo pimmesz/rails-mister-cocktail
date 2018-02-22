@@ -1,0 +1,16 @@
+<div class="flexbox">
+  <% @cocktails.each do |cocktail| %>
+  <div>
+    <% cocktail.doses.each do |dose| %>
+    <div>
+    <%= link_to cocktail.name, cocktail_path(cocktail)%>
+    <ul>
+      <li><strong>Ingredient: </strong><%= dose.ingredient.name %> - <%= dose.description %></li>
+    </ul>
+  </div>
+    <% end %>
+    <% end %>
+
+    <%= link_to "New cocktail", new_cocktail_path %>
+    <div>
+    </div>
