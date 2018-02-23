@@ -14,12 +14,14 @@
 .flex-item {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  min-width: 300px;
+  width: 350px;
   height: 600px;
   color: #8075FF;
   background-color: #F8F0FB;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 30px;
+  padding-top: 0px;
   margin: 10px;
   position: relative;
 }
@@ -38,12 +40,24 @@
 }
 
 .flex-item a {
-  color: #8075FF;
+  color: rgba(128,117,255, 1);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.flex-item a:hover {
+  color: rgba(128,117,255, 0.7);
+  text-decoration: none;
 }
 
 .flex-item-homepage a {
-  color: #F8F0FB;
+  color: rgba(248,240,251, 1);
   font-weight: bold;
+}
+
+.flex-item-homepage a:hover {
+  color: rgba(248,240,251, 0.7);
+  text-decoration: none;
 }
 
 .flex-item-homepage-content {
