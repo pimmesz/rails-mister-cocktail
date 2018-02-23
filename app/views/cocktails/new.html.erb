@@ -1,7 +1,27 @@
-<h1>Cocktails#new</h1>
-<p>Find me in app/views/cocktails/new.html.erb</p>
+ <div class="flexbox">
+   <h1>Doses#new</h1>
+ </div>
+ <div class="flexbox">
+  <div class="flex-item">
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+    <%= simple_form_for @cocktail do |f| %>
+    <% if @cocktail.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+        <li><%= pluralize(@cocktail.errors.count, "error") %> prohibited this @cocktail from being saved:</li>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= f.input :name %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <div class="flex-item-homepage-content">
+    <%= f.button :submit, class: "main-button" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+

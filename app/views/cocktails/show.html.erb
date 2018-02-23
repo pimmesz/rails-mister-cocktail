@@ -1,10 +1,10 @@
 <div class="flexbox">
   <div class="flex-item">
-    <% @ingredientName = [] %>
+    <% ingredientName = [] %>
     <h3><%= @cocktail.name %></h3>
-    <%= image_tag "https://source.unsplash.com/200x200/?cocktail", alt: "Le Wagon", width: 200 %>
+    <%= cl_image_tag @cocktail.photo, height: 200, width: 200, crop: :fill %>
     <% @cocktail.doses.each do |dose| %>
-    <% @ingredientName << dose.ingredient.name %>
+    <% ingredientName << dose.ingredient.name %>
     <ul>
       <li><strong>Ingredient:</strong> <%= dose.ingredient.name %></li>
       <li><strong>Description:</strong><%= dose.description %></li>
@@ -13,19 +13,28 @@
       data: { confirm: "Are you sure?" } %>
     </ul>
     <% end %>
+  </div>
+  <div class="flex-item">
+    <h3>Ingredients available</h3>
     <% @ingredients.each do |ingredient| %>
-    <% if @ingredientName.exclude?(ingredient.name) %>
+    <% if ingredientName.exclude?(ingredient.name) %>
     <ul>
       <li>Available - <%= ingredient.name %></li>
     </ul>
     <% end %>
     <% end %>
+
   </div>
 </div>
 
 <div class="flexbox">
-  <%= link_to "Add dose", new_cocktail_dose_path(@cocktail)%>
+  <%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "main-button" %>
 </div>
 <div class="flexbox">
-  <%= link_to "Home", cocktails_path %>
+  <%= link_to "Delete", cocktail_path(@cocktail),
+  method: :delete,
+  data: { confirm: "Are you sure?" }, :class => "main-button" %>
+</div>
+<div class="flexbox">
+  <%= link_to "Home", cocktails_path, class: "main-button-home"  %>
 </div>

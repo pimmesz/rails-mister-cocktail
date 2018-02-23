@@ -1,8 +1,17 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/cocktails/new.html.erb</p>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient, as: :select %>
-  <%= f.button :submit %>
-<% end %>
+ <div class="flexbox">
+   <h1>Doses#new</h1>
+ </div>
+ <div class="flexbox">
+  <div class="flex-item">
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient, as: :select %>
+    <div class="flex-item-homepage-content">
+      <%= f.button :submit, class: "main-button" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="flexbox">
+  <%= link_to "Home", cocktails_path, class: "main-button-home" %>
+</div>
+</div>

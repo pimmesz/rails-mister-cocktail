@@ -1,25 +1,24 @@
 <div class="flexbox">
+<h1>Welcome to Mr. Cocktail</h1>
+</div>
+<div class="flexbox">
   <% @cocktails.each do |cocktail| %>
-  <div class="flex-item">
-    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+  <div class="flex-item-homepage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+    <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
     <%= link_to cocktail_path(cocktail) do %>
-    <%= image_tag "https://source.unsplash.com/200x200/?cocktail", alt: "Le Wagon", width: 200 %>
     <% end %>
-    <% cocktail.doses.each do |dose| %>
-    <ul>
-      <li><strong>Ingredient: </strong><%= dose.ingredient.name %> - <%= dose.description %></li>
-    </ul>
-
-    <% end %>
+    <div class="flex-item-homepage-content">
     <%= link_to "Delete", cocktail_path(cocktail),
   method: :delete,
-  data: { confirm: "Are you sure?" } %>
+  data: { confirm: "Are you sure?" }, :class => "bar" %>
   </div>
+</div>
   <% end %>
 
 </div>
 <div class="flexbox">
-  <%= link_to "New cocktail", new_cocktail_path %>
+  <%= link_to "New cocktail", new_cocktail_path, class: "main-button-home" %>
 </div>
 </div>
 
