@@ -11,11 +11,15 @@
   padding-right: 50px;
 }
 
+.flex-overlay {
+  background-color: black;
+}
+
 .flex-item {
   display: flex;
   flex-direction: column;
   min-width: 300px;
-  width: 350px;
+  width: 375px;
   height: 600px;
   color: #8075FF;
   background-color: #F8F0FB;
@@ -65,14 +69,37 @@
 .flex-item a:hover {
   color: rgba(128,117,255, 0.7);
   text-decoration: none;
+  background-color: black;
 }
 
 .flex-item ul {
   list-style-type: none;
-  padding-left:0;
+  padding-left: 10px;
   margin: 0px;
 }
 
 .icon {
   margin-right: 10px;
+}
+
+a.homepage-link {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -moz-transform: scale(1,1);
+  -webkit-transform: scale(1,1);
+  transform: scale(1,1);
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+a.homepage-link:hover {
+    -moz-transform: scale(1.05,1.05);
+  -webkit-transform: scale(1.05,1.05);
+  transform: scale(1.05,1.05);
 }
