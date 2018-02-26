@@ -4,7 +4,7 @@
  <div class="flexbox">
   <div class="flex-item">
 
-    <%= simple_form_for @cocktail do |f| %>
+   <%= simple_form_for(@cocktail, html: {class: 'form-vertical' }) do |f| %>
     <% if @cocktail.errors.any? %>
     <div id="error_explanation">
       <ul>
