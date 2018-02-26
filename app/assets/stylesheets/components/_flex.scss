@@ -11,10 +11,6 @@
   padding-right: 50px;
 }
 
-.flex-overlay {
-  background-color: black;
-}
-
 .flex-item {
   display: flex;
   flex-direction: column;
@@ -84,7 +80,6 @@
 .flex-item a:hover {
   color: rgba(128,117,255, 0.7);
   text-decoration: none;
-  background-color: black;
 }
 
 .flex-item ul {
